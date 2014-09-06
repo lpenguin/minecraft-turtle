@@ -1,3 +1,5 @@
+-- http://pastebin.com/BeGCtnrz
+
 function download(url, dest)
     local gist_url = url
     local request = http.get( gist_url )
