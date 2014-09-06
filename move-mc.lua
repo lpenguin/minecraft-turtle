@@ -185,9 +185,9 @@ end
 turtle.turnLeft()
 turtle.turnLeft()
 
-path.reset()
+reset()
 
-path.move({
+move({
     p(4, 0, 0), 
     p(4, 3, 0),
     p(0, 3, 0),
