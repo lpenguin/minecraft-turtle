@@ -3,9 +3,10 @@ os.loadAPI("modules/utils")
 
 local p = utils.p
 local v = utils.v
+local d = utils.d
 
 path.reset()
-
+turtle.up()
 path.move({
     p(4, 0, 0), 
     p(4, 3, 0),
@@ -26,7 +27,6 @@ path.move({
     p(4, 2, 2),
     p(4, 3, 2),
     p(-1, 3, 2),
-    v(-1, 0, 0)
+    v(0, 0, 2)
     })
 
-print("hi")

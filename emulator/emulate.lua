@@ -4,12 +4,11 @@ local dirname=function(str,sep)
 end
 
 local filename=function(str)
-    local r = str:match(".*/(.*)")
-    if r == nil then
-        return str
-    else
-        return r
-    end
+    return str:match(".*/(.*)") or str
+end
+
+local droplua = function(file)
+    return file:match("(.*)\.lua")
 end
 
 
@@ -32,5 +31,5 @@ local field = Area.Area.new(9, 9, 4)
 turtle.setArea(field)
 turtle.setPosition(5, 5, 1)
 
-require(arg[1])
+require(droplua(arg[1]))
 utils.printArea(field)

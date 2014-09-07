@@ -65,6 +65,10 @@ function p(x, y, z)
     return {x=x; y=y; z=z; put=true}
 end
 
+function d(x, y, z)
+    return {x=x; y=y; z=z; dig=true}
+end
+
 return {
     printArea = printArea;
     inc = inc;
@@ -73,4 +77,5 @@ return {
     v = v;
     v2 = v2;
     p = p;
+    d = d;
 }

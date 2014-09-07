@@ -15,6 +15,7 @@ local ydir = ymods[1]
 
 local modsIndex = 0
 local area = nil 
+local fuel = 1000
 
 function setArea(area1)
     area = area1
@@ -47,6 +48,7 @@ function getPosition()
 end
 
 function forward()
+    fuel = fuel - 1
     newx = x + xdir
     newy = y + ydir
     if area:isEmpty(newx, newy, z) then
@@ -57,6 +59,7 @@ function forward()
 end
 
 function back()
+    fuel = fuel - 1
     newx = x - xdir
     newy = y - ydir
     if area:isEmpty(newx, newy, z) then
@@ -83,7 +86,7 @@ function detectUp()
 end
 
 function digDown()
-    newz = z + 1
+    newz = z - 1
     area:setEmpty(x, y, newz)
 end
 
@@ -95,6 +98,7 @@ end
 
 
 function down()
+    fuel = fuel - 1
     newz = z - 1
     if area:isEmpty(x, y, newz) then
         setPosition(x, y, newz)
@@ -104,6 +108,7 @@ function down()
 end
 
 function up()
+    fuel = fuel - 1
     newz = z + 1
     if area:isEmpty(x, y, newz) then
         setPosition(x, y, newz)
@@ -130,6 +135,10 @@ function direction()
     return {x = xdir, y = ydir}
 end
 
+function getFuelLevel( )
+    return fuel
+end
+
 return {
     setPosition = setPosition;
     getPosition = getPosition;
@@ -149,4 +158,5 @@ return {
     place=place;
     placeDown = placeDown;
     placeUp = placeUp;
+    getFuelLevel = getFuelLevel;
 }

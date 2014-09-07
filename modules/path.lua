@@ -27,6 +27,7 @@ end
 function reset()
     dir = {x=xmods[1]; y=ymods[1]; z=0}
     pos = {x=0; y=0; z=0}
+    modsIndex = 0
 end
 
 function forward()
@@ -105,6 +106,11 @@ function move_to_iter(coords)
         if coords.put then
             turtle.placeDown()
         end
+
+        if coords.dig then
+            turtle.digDown()
+        end
+
         return forward()
     end
 
@@ -113,6 +119,11 @@ function move_to_iter(coords)
         if coords.put then
             turtle.placeDown()
         end 
+
+        if coords.dig then
+            turtle.digDown()
+        end
+
         return forward()
     end
 
@@ -126,8 +137,8 @@ function move_to(coords)
 end
 
 function move(postitions)
-    turtle.up()
     for i, pos in ipairs(postitions)do
+        print("moving to next point")
         move_to(pos)
     end
 end
