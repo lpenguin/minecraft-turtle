@@ -1,6 +1,10 @@
 local dirname=function(str,sep)
     sep=sep or'/'
-    return str:match("(.*"..sep..")")
+    local res = str:match("(.*"..sep..")")
+    if res == nil then
+        return "."
+    end
+    return res    
 end
 
 local filename=function(str)
@@ -11,6 +15,7 @@ local filename=function(str)
         return r
     end
 end
+
 
 local root = dirname(arg[0])
 

@@ -2,10 +2,16 @@
 
 local dirname=function(str,sep)
     sep=sep or'/'
-    return str:match("(.*"..sep..")")
+    local res = str:match("(.*"..sep..")")
+    if res == nil then
+        return "."
+    end
+    return res   
 end
 
 function download(url, dest)
+    print("downloading into: "..dest.." "..url)
+    print("creating directory: "..dirname(dest))
     fs.makeDir(dirname(dest))
 
     local gist_url = url
