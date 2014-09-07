@@ -28,7 +28,7 @@ function reset()
     dir = {x=xmods[1]; y=ymods[1]; z=0}
     pos = {x=0; y=0; z=0}
     modsIndex = 0
-    turtle.select(0)
+    turtle.select(1)
 end
 
 function forward()

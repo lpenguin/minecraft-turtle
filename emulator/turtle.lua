@@ -16,7 +16,7 @@ local ydir = ymods[1]
 local modsIndex = 0
 local area = nil 
 local fuel = 1000
-local selectedSlot = 0
+local selectedSlot = 1
 
 function select(slot)
     selectedSlot = slot
