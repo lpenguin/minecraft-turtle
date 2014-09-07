@@ -51,10 +51,6 @@ end
 
 function forward()
     pos = vec_add(pos, dir)
-    --print("moving in direction: ")
-    print_vec(dir)
-    --print("new pos: ")
-    print_vec(pos)
     return turtle.back()
 end
 
@@ -72,18 +68,13 @@ end
 
 function rotate(cx, cy, x, y)
     t = cx * y - cy * x
-    --print("rotate t= "..t..", cx= "..cx..", cy= "..cy..", x= "..x..", y="..y)
     if t > 0 then
-        --print("rotating turtle left")
         left()
     else
         if t < 0 then
-            --print("rotating turtle right")
             right()
         else 
-            --print("t==0")
             if cx*x + cy*y < 0 then
-                --print("other sides")
                 left()
                 left()
             end
@@ -114,7 +105,6 @@ function move_to_iter(coords)
     print("dx: "..dx..", dy: "..dy..", dz: "..dz)
 
     if pos.z ~= coords.z then
-        --print("move dz")
         if pos.z > coords.z then
 
             local r = down()
@@ -134,7 +124,6 @@ function move_to_iter(coords)
 
 
     if dx ~= 0 then
-        --print("move dx")
         rotate(dir.x, dir.y, dx, 0)
         local r = forward()
         if coords.put then
@@ -144,7 +133,6 @@ function move_to_iter(coords)
     end
 
     if dy ~= 0 then
-        --print("move dy")
         rotate(dir.x, dir.y, 0, dy)
         local r = forward()
         if coords.put then
