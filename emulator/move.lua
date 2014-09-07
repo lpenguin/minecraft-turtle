@@ -14,8 +14,6 @@ turtle.turnLeft()
 path.setTurtle(turtle)
 path.reset()
 
--- utils.printArea(field)
--- path.move({v(0, 0, 2)})
 path.move({
     p(4, 0, 0), 
     p(4, 3, 0),

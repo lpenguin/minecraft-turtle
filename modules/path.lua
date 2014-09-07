@@ -1,6 +1,4 @@
-local turtle = nil
-
-
+os.loadAPI("utils")
 
 local dir = {}
 local pos = {}
@@ -8,27 +6,10 @@ local pos = {}
 local xmods = {1, 0, -1, 0}
 local ymods = {0, -1, 0, 1}
 local modsIndex = 0
-function mod(a, b)
-    return a - (math.floor(a/b)*b)
-end
-
-function inc(value, max)
-    value = value + 1
-    return mod(value, max)
-end
-
-function dec(value, max)
-    value = value - 1
-    if value >= 0 then
-        return mod(value, max)
-    else
-        return mod(value, max)
-    end
-end
 
 function right()
     turtle.turnRight()
-    modsIndex = inc(modsIndex, 4)
+    modsIndex = utils.inc(modsIndex, 4)
     local xdir = xmods[modsIndex+1]
     local ydir = ymods[modsIndex+1]
     dir = {x=xdir; y=ydir;z=dir.z}
@@ -36,16 +17,11 @@ end
 
 function left()
     turtle.turnLeft()
-    modsIndex = dec(modsIndex, 4)
+    modsIndex = utils.dec(modsIndex, 4)
     local xdir = xmods[modsIndex+1]
     local ydir = ymods[modsIndex+1]
     dir = {x=xdir; y=ydir;z=dir.z}
 end
-
-function set_turtle(turtle1)
-    turtle = turtle1
-end
-
 
 function reset()
     dir = {x=xmods[1]; y=ymods[1]; z=0}
@@ -54,11 +30,7 @@ end
 
 function forward()
     pos = vec_add(pos, dir)
-    print("moving in direction: ")
-    print_vec(dir)
-    print("new pos: ")
-    print_vec(pos)
-    return turtle.back()
+    return turtle.forward()
 end
 
 
@@ -75,18 +47,13 @@ end
 
 function rotate(cx, cy, x, y)
     t = cx * y - cy * x
-    print("rotate t= "..t..", cx= "..cx..", cy= "..cy..", x= "..x..", y="..y)
     if t > 0 then
-        print("rotating turtle left")
         left()
     else
         if t < 0 then
-            print("rotating turtle right")
             right()
         else 
-            print("t==0")
             if cx*x + cy*y < 0 then
-                print("other sides")
                 left()
                 left()
             end
@@ -117,43 +84,35 @@ function move_to_iter(coords)
     print("dx: "..dx..", dy: "..dy..", dz: "..dz)
 
     if pos.z ~= coords.z then
-        print("move dz")
         if pos.z > coords.z then
-
-            local r = down()
             if coords.put then
                 turtle.placeUp()
             end
-            return r
+            return down()
         else
-            local r = up()
             if coords.put then
                 turtle.placeDown()
             end
-            return r
+            return up()
         end       
     end
 
 
 
     if dx ~= 0 then
-        print("move dx")
         rotate(dir.x, dir.y, dx, 0)
-        local r = forward()
         if coords.put then
-            turtle.place()
+            turtle.placeDown()
         end
-        return r
+        return forward()
     end
 
     if dy ~= 0 then
-        print("move dy")
         rotate(dir.x, dir.y, 0, dy)
-        local r = forward()
         if coords.put then
-            turtle.place()
-        end
-        return r
+            turtle.placeDown()
+        end 
+        return forward()
     end
 
     return false
@@ -166,6 +125,7 @@ function move_to(coords)
 end
 
 function move(postitions)
+    turtle.up()
     for i, pos in ipairs(postitions)do
         move_to(pos)
     end

@@ -1,6 +1,13 @@
 -- http://pastebin.com/BeGCtnrz
 
+local dirname=function(str,sep)
+    sep=sep or'/'
+    return str:match("(.*"..sep..")")
+end
+
 function download(url, dest)
+    fs.makeDir(dirname(dest))
+
     local gist_url = url
     local request = http.get( gist_url )
     local response = request.readAll()
@@ -13,12 +20,16 @@ end
 local root = "https://raw.githubusercontent.com/lpenguin/minecraft-turtle/master/"
 
 download(root.."init.lua", "init")
-download(root.."fuel.lua", "fuel")
-download(root.."refuel.lua", "refuel")
-download(root.."move-mc.lua", "move")
-download(root.."f.lua", "f")
-download(root.."b.lua", "b")
-download(root.."l.lua", "l")
-download(root.."r.lua", "r")
-download(root.."u.lua", "u")
-download(root.."d.lua", "d")
+download(root.."shortcuts/fuel.lua", "shortcuts/fuel")
+download(root.."shortcuts/refuel.lua", "shortcuts/refuel")
+download(root.."shortcuts/f.lua", "shortcuts/f")
+download(root.."shortcuts/b.lua", "shortcuts/b")
+download(root.."shortcuts/l.lua", "shortcuts/l")
+download(root.."shortcuts/r.lua", "shortcuts/r")
+download(root.."shortcuts/u.lua", "shortcuts/u")
+download(root.."shortcuts/d.lua", "shortcuts/d")
+download(root.."modules/path.lua", "modules/path")
+download(root.."modules/utils.lua", "modules/utils")
+download(root.."camp.lua", "camp")
+download(root.."testpath.lua", "testpath")
+
