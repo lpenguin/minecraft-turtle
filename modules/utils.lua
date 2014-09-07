@@ -62,15 +62,15 @@ function v2(x, y)
 end
 
 function p(x, y, z)
-    return {x=x; y=y; z=z; put=true}
+    return {x=x; y=y; z=z; put=true;}
 end
 
 function d(x, y, z)
-    return {x=x; y=y; z=z; dig=true}
+    return {x=x; y=y; z=z; dig=true;}
 end
 
 function e(x, y, z)
-    return {x=x; y=y; z=z; eat=true}
+    return {x=x; y=y; z=z; eat=true;}
 end
 
 return {
@@ -82,4 +82,5 @@ return {
     v2 = v2;
     p = p;
     d = d;
+    e = e;
 }

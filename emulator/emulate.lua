@@ -30,6 +30,7 @@ local field = Area.Area.new(9, 9, 4)
 
 turtle.setArea(field)
 turtle.setPosition(5, 5, 1)
-
-require(droplua(arg[1]))
+local file = droplua(arg[1])
+--table.remove(arg, 1)
+require(file)
 utils.printArea(field)

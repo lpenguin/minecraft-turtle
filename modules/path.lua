@@ -86,6 +86,7 @@ function select_slot()
 end
 
 function move_to_iter(coords)
+    print_vec(coords)
     dx = coords.x - pos.x
     dy = coords.y - pos.y
     dz = coords.z - pos.z

@@ -16,7 +16,7 @@ function Area.new(width, height, level)
         for j=1, height do
             self.area[i][j] = {}
             for k=1, level do
-                self.area[i][j][k] = empty
+                self.area[i][j][k] = filled
             end
         end
     end

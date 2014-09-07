@@ -10,6 +10,6 @@ local d = utils.d
 
 path.reset()
 path.move({
-    e(args[1], 0, 0)
+    e(args[1] or 1, 0, 0)
     })
 
