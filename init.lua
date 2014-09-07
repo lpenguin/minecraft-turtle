@@ -12,9 +12,9 @@ end
 
 local root = "https://raw.githubusercontent.com/lpenguin/minecraft-turtle/master/"
 
-download(root.."utils.lua", "utils")
-download(root.."path.lua", "path")
+download(root.."init.lua", "init")
 download(root.."fuel.lua", "fuel")
 download(root.."refuel.lua", "refuel")
 download(root.."move-mc.lua", "move")
-download(root.."init.lua", "init")
+download(root.."f.lua", "f")
+download(root.."f.lua", "f")
