@@ -1,1 +1,1 @@
-print(turtle.getFuelLimit())
+print(turtle.getFuelLevel().."/"..turtle.getFuelLimit())
