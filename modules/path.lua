@@ -120,6 +120,10 @@ function move_to_iter(coords)
             turtle.digDown()
         end
 
+        if coords.eat then
+            turtle.dig()
+        end
+
         return forward()
     end
 
@@ -132,6 +136,10 @@ function move_to_iter(coords)
 
         if coords.dig then
             turtle.digDown()
+        end
+
+        if coords.eat then
+            turtle.dig()
         end
 
         return forward()

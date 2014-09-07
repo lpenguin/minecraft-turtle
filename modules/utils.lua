@@ -69,6 +69,10 @@ function d(x, y, z)
     return {x=x; y=y; z=z; dig=true}
 end
 
+function e(x, y, z)
+    return {x=x; y=y; z=z; eat=true}
+end
+
 return {
     printArea = printArea;
     inc = inc;
