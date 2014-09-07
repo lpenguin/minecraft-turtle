@@ -1,4 +1,5 @@
-os.loadAPI("utils")
+print("Loaded path module")
+os.loadAPI("modules/utils")
 
 local dir = {}
 local pos = {}
