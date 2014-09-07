@@ -28,6 +28,7 @@ function reset()
     dir = {x=xmods[1]; y=ymods[1]; z=0}
     pos = {x=0; y=0; z=0}
     modsIndex = 0
+    turtle.select(0)
 end
 
 function forward()
@@ -78,6 +79,12 @@ function vec_eq(vec1, vec2)
     return vec1.x == vec2.x and vec1.y == vec2.y and vec1.z == vec2.z
 end
 
+function select_slot()
+    while turtle.getSelectedSlot() < 16 and turtle.getItemCount(turtle.getSelectedSlot()) == 0 do
+        turtle.select(turtle.getSelectedSlot()+1)
+    end
+end
+
 function move_to_iter(coords)
     dx = coords.x - pos.x
     dy = coords.y - pos.y
@@ -93,6 +100,7 @@ function move_to_iter(coords)
             return down()
         else
             if coords.put then
+                select_slot()
                 turtle.placeDown()
             end
             return up()
@@ -104,6 +112,7 @@ function move_to_iter(coords)
     if dx ~= 0 then
         rotate(dir.x, dir.y, dx, 0)
         if coords.put then
+            select_slot()
             turtle.placeDown()
         end
 
@@ -117,6 +126,7 @@ function move_to_iter(coords)
     if dy ~= 0 then
         rotate(dir.x, dir.y, 0, dy)
         if coords.put then
+            select_slot()
             turtle.placeDown()
         end 
 
