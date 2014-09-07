@@ -16,6 +16,19 @@ local ydir = ymods[1]
 local modsIndex = 0
 local area = nil 
 local fuel = 1000
+local selectedSlot = 0
+
+function select(slot)
+    selectedSlot = slot
+end
+
+function getSelectedSlot( )
+    return selectedSlot
+end
+
+function getItemCount(  )
+    return 1
+end
 
 function setArea(area1)
     area = area1
@@ -159,4 +172,7 @@ return {
     placeDown = placeDown;
     placeUp = placeUp;
     getFuelLevel = getFuelLevel;
+    getItemCount = getItemCount;
+    select = select;
+    getSelectedSlot = getSelectedSlot;
 }
