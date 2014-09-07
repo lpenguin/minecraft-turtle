@@ -2,11 +2,7 @@
 
 local dirname=function(str,sep)
     sep=sep or'/'
-    local res = str:match("(.*"..sep..")")
-    if res == nil then
-        return "."
-    end
-    return res   
+    return str:match("(.*"..sep..")") or "."
 end
 
 function download(url, dest)
