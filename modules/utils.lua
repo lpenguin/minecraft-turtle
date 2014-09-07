@@ -1,4 +1,4 @@
-
+print("Loaded utils module")
 function mod(a, b)
     return a - (math.floor(a/b)*b)
 end
@@ -53,15 +53,13 @@ function printAreaLevel(area, level)
     end
 end
 
-function v3(x, y, z)
+function v(x, y, z)
     return {x=x; y=y; z=z;}
 end
 
 function v2(x, y)
     return v3(x, y, 0)
 end
-
-local v = v3
 
 function p(x, y, z)
     return {x=x; y=y; z=z; put=true}
@@ -74,6 +72,5 @@ return {
     mod = mod;
     v = v;
     v2 = v2;
-    v3 = v3;
     p = p;
 }
