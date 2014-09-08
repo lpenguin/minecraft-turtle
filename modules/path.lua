@@ -112,14 +112,17 @@ function move_to_iter(coords)
 
     if dx ~= 0 then
         rotate(dir.x, dir.y, dx, 0)
+        if coords.dig then
+            turtle.digDown()
+        end
+
+
         if coords.put then
             select_slot()
             turtle.placeDown()
         end
 
-        if coords.dig then
-            turtle.digDown()
-        end
+
 
         if coords.eat then
             turtle.dig()
@@ -130,14 +133,14 @@ function move_to_iter(coords)
 
     if dy ~= 0 then
         rotate(dir.x, dir.y, 0, dy)
+        if coords.dig then
+            turtle.digDown()
+        end
+
         if coords.put then
             select_slot()
             turtle.placeDown()
         end 
-
-        if coords.dig then
-            turtle.digDown()
-        end
 
         if coords.eat then
             turtle.dig()

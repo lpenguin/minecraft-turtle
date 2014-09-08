@@ -65,6 +65,10 @@ function p(x, y, z)
     return {x=x; y=y; z=z; put=true;}
 end
 
+function r(x, y, z)
+    return {x=x; y=y; z=z; dig=true; put=true;}
+end
+
 function d(x, y, z)
     return {x=x; y=y; z=z; dig=true;}
 end
